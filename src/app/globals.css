@@ -8,8 +8,32 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-roboto-mono);
+
+  /* colors */
+  --color-primary-50: #fef2f3;
+  --color-primary-100: #fde3e4;
+  --color-primary-200: #fcccce;
+  --color-primary-300: #f9a8ac;
+  --color-primary-400: #f3767c;
+  --color-primary-500: #e94a51;
+  --color-primary-600: #d62c34;
+  --color-primary-700: #b42128;
+  --color-primary-800: #951f25;
+  --color-primary-900: #731e22;
+  --color-primary-950: #430c0f;
+
+  /* radial-gradient */
+  --radial-gradient-primary: radial-gradient(
+    circle at 50% 50%,
+    var(--color-primary-900) 0%,
+    var(--color-black) 100%
+  );
+}
+
+@utility bg-radial-gradient-primary {
+  background: var(--radial-gradient-primary);
 }
 
 @media (prefers-color-scheme: dark) {

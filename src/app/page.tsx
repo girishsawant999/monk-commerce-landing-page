@@ -1,103 +1,173 @@
-import Image from "next/image";
+import AnimatedCounter from "@/components/AnimatedCounter";
+import BrandCarousel from "@/components/BrandCarousel";
+import Features from "@/components/Features";
+import MotionWrapper from "@/components/MotionWrapper";
+import MARKETING_AND_CRO_AGENCIES_LOGO_URLS from "@/constants/marketingAndCROAgencies";
+import TOP_BRANDS_LOGOS_URLS from "@/constants/topBrands";
+import { Diamond, MoveRight, MoveUp, Star } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <>
+      <section className="container py-20 min-h-screen grid items-center justify-center">
+        <div className="grid grid-cols-2 gap-5 ">
+          <MotionWrapper className="flex flex-col gap-5 my-auto">
+            <h1 className="text-[58px] leading-14 font-bold mb-4">
+              <span className="text-primary-900">All-in-one&nbsp;</span>
+              AOV enhancement app for your Shopify store
+            </h1>
+            <div className="flex flex-col gap-1">
+              <div className="flex items-center gap-1">
+                {Array.from({ length: 5 }).map((_, index) => (
+                  <Star
+                    key={index}
+                    className="text-amber-500 size-5"
+                    strokeWidth={1.5}
+                    fill="currentColor"
+                  />
+                ))}
+              </div>
+              <p className="text-sm text-gray-500">
+                Rated 4.9/5 (500+ reviews on the Shopify App Store)
+              </p>
+            </div>
+            <div className="flex items-center gap-4">
+              <MotionWrapper
+                as="button"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                whileFocus={{ scale: 1.05 }}
+                className="btn-primary"
+              >
+                Book Demo&nbsp;
+                <MoveRight className="size-4" />
+              </MotionWrapper>
+              <MotionWrapper
+                as="button"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                whileFocus={{ scale: 1.05 }}
+                className="btn-secondary"
+              >
+                Start free trial
+              </MotionWrapper>
+            </div>
+          </MotionWrapper>
+          <MotionWrapper className="bg-radial-gradient-primary rounded-xl p-8 flex flex-col gap-6">
+            <div className="bg-white rounded-lg p-4 shadow-lg flex pt-5 flex-col gap-5 relative">
+              <div className="absolute top-4 left-4 text-gray-500">
+                <h3 className="text-gray-500 text-lg font-semibold">
+                  Total Sales
+                </h3>
+                <AnimatedCounter
+                  from={0}
+                  to={71399}
+                  className="col-span-2 text-center text-4xl font-bold text-primary-900"
+                />
+              </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+              <span className="absolute top-8 right-4 text-emerald-500 text-3xl font-semibold flex items-center gap-1">
+                <MoveUp strokeWidth={3} />
+                15%
+              </span>
+
+              <svg viewBox="0 0 100 50">
+                <path
+                  className="stroke-gray-400 animate-draw"
+                  fill="none"
+                  stroke="white"
+                  strokeDasharray="200"
+                  strokeDashoffset="200"
+                  d="M2,48 L30,47 L70,42 L95,38"
+                  strokeLinecap="round"
+                  style={{
+                    animation: "drawLine 2s ease forwards",
+                  }}
+                />
+                <path
+                  className="stroke-primary-900 animate-draw-delayed"
+                  fill="none"
+                  stroke="white"
+                  strokeDasharray="200"
+                  strokeDashoffset="200"
+                  d="M2,46 L30,44 L70,30 L95,10"
+                  strokeLinecap="round"
+                  style={{
+                    animation: "drawLine 2s ease forwards 0.5s",
+                  }}
+                />
+              </svg>
+              <div className="flex items-center gap-4 px-1">
+                <div className="flex items-center gap-2">
+                  <span className="size-4 bg-primary-900" />
+                  <span className="text-base text-gray-700">with Monk</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="size-4 bg-gray-400" />
+                  <span className="text-base text-gray-700">without Monk</span>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white rounded-lg p-4 shadow-lg flex flex-col gap-5 relative">
+              <div className="text-gray-500">
+                <h3 className="text-gray-500 text-lg font-semibold">
+                  Average Order Value
+                </h3>
+                <div className="flex justify-between items-end">
+                  <AnimatedCounter
+                    from={0}
+                    to={152}
+                    className="text-4xl font-bold text-primary-900"
+                  />
+                  <span className=" text-emerald-500 text-3xl font-semibold flex items-center gap-1">
+                    <MoveUp strokeWidth={3} />
+                    13%
+                  </span>
+                </div>
+              </div>
+            </div>
+          </MotionWrapper>
+          <MotionWrapper
+            as="section"
+            className="col-span-2 flex flex-col gap-10 justify-center items-center py-6 mt-10 overflow-hidden"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <p className="text-xl text-gray-700 font-semibold">
+              Widgets & offers displayed across 100,000+ website sessions daily
+              and used by some of the top brands on Shopify
+            </p>
+            <BrandCarousel images={TOP_BRANDS_LOGOS_URLS} />
+          </MotionWrapper>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      <Features />
+      <MotionWrapper
+        as="section"
+        className="col-span-2 flex flex-col gap-10 justify-center items-center py-6 mt-10 overflow-hidden container mx-auto"
+      >
+        <p className="text-xl text-gray-700 font-semibold">
+          Trusted by top Marketing & CRO agencies globally
+        </p>
+        <BrandCarousel images={MARKETING_AND_CRO_AGENCIES_LOGO_URLS} />
+      </MotionWrapper>
+
+      <MotionWrapper
+        as="section"
+        className="py-10 mt-10 container mx-auto text-center"
+      >
+        <div className="text-6xl font-bold mb-4 flex items-center justify-center gap-3 text-gray-900">
+          <span>Monk is</span>
+          <span className="bg-blue-100 rounded-full text-5xl leading-16 p-5 font-normal flex items-center gap-2 justify-center">
+            <Diamond className="size-12  text-blue-500" fill="currentColor" />
+            Built for Shopify
+          </span>
+        </div>
+        <p className="text-xl font-medium text-gray-700 mt-6 mb-12">
+          The app meets Shopify's highest quality standards for speed, ease of
+          use, and merchant value - Less than 2% of all apps have been awarded
+          this badge by Shopify
+        </p>
+      </MotionWrapper>
+    </>
   );
 }

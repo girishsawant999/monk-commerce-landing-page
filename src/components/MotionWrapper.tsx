@@ -17,10 +17,10 @@ const MotionWrapper: React.FC<TProps & HTMLMotionProps<any>> = ({
 
   return (
     <MotionComponent
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ ease: [0.22, 1, 0.36, 1], duration: 0.4 }}
+      exit={{ opacity: 0, y: -100 }}
+      transition={{ ease: [0.22, 1, 0.36, 1], duration: 0.5 }}
       viewport={{ once: true }}
       {...rest}
     >

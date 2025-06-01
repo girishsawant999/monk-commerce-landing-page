@@ -1,4 +1,6 @@
 import Header from "@/components/Header";
+import SmoothScroll from "@/components/SmoothScroll";
+import "lenis/dist/lenis.css";
 import type { Metadata } from "next";
 import { Inter, Roboto_Mono } from "next/font/google";
 import "./globals.css";
@@ -45,6 +47,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <SmoothScroll />
       <body className={`${inter.variable} ${robotoMono.variable} antialiased`}>
         <Header />
         <main>{children}</main>

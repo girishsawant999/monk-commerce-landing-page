@@ -36,6 +36,7 @@ const Header = () => {
             {item.label}
           </Link>
         ))}
+        <button className="btn-primary">Book Demo</button>
       </div>
     </header>
   );
